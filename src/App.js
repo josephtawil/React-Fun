@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Auth from './components/auth';
+import NotAuth from './components/notauth';
+import ListItem from "./components/ListItem";
 
 function App() {
+
+const bool = true;
+const array = [1,2,3,4,5];
+const arr = array.map((res,id)=>{
+  return <ListItem key = {id} passedNumber = {res} anotherProp = {res*2}/>;
+})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>{bool ? <Auth/> : <NotAuth/>}</h1>
+    
+    <ul>{arr}</ul>
     </div>
   );
 }
